@@ -123,13 +123,19 @@ export function Contact() {
               </div>
               <button
                 type="submit"
-                className="glow-btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
+                disabled={state === "sending"}
+                className="glow-btn inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground disabled:opacity-60"
               >
-                Send Message <Send size={16} />
+                {state === "sending" ? "Sending..." : "Send Message"} <Send size={16} />
               </button>
               <p aria-live="polite" className="min-h-5 text-center text-xs text-secondary">
-                {sent ? "Opening your email app — thanks for reaching out!" : ""}
+                {state === "success"
+                  ? "Thanks for reaching out — your message has been sent!"
+                  : state === "error"
+                    ? errorMsg || "Something went wrong. Please try again."
+                    : ""}
               </p>
+
             </form>
           </Reveal>
         </div>
