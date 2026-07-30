@@ -1,5 +1,5 @@
 import { ArrowRight, Download, Mail } from "lucide-react";
-import portrait from "@/assets/tarun-portrait-cutout.png";
+import portraitAsset from "@/assets/tarun-portrait.jpg.asset.json";
 
 const TECH = [
   { name: "React", className: "left-[-4%] top-[12%]", delay: "0s" },
@@ -31,11 +31,11 @@ export function Hero() {
             </span>
           ))}
           <div className="relative rounded-[2rem] p-[2px] [background:var(--gradient-brand)]">
-            <div className="relative overflow-hidden rounded-[calc(2rem-2px)] bg-[radial-gradient(circle_at_50%_25%,color-mix(in_oklab,var(--primary)_22%,var(--surface)),var(--background)_78%)]">
+            <div className="relative overflow-hidden rounded-[calc(2rem-2px)] bg-surface">
               <img
-                src={portrait}
+                src={portraitAsset.url}
                 alt="Portrait of Bolla Tarun Kumar, Computer Science student and full-stack developer"
-                className="aspect-[3/4] h-full w-full scale-105 object-contain object-top"
+                className="aspect-[3/4] h-full w-full object-cover object-top"
               />
               <div
                 aria-hidden
