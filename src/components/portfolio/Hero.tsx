@@ -33,9 +33,9 @@ export function Hero() {
           <div className="relative rounded-[2rem] p-[2px] [background:var(--gradient-brand)]">
             <div className="overflow-hidden rounded-[calc(2rem-2px)] bg-surface">
               <img
-                src={profile}
-                width={912}
-                height={912}
+                src={profileAsset.url}
+                width={612}
+                height={1280}
                 alt="Portrait of Bolla Tarun Kumar, Computer Science student and full-stack developer"
                 className="h-full w-full object-cover"
               />
