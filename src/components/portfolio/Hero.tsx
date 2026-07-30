@@ -1,5 +1,5 @@
 import { ArrowRight, Download, Mail } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import profileAsset from "@/assets/tarun-portrait.jpg.asset.json";
 
 const TECH = [
   { name: "React", className: "left-[-4%] top-[12%]", delay: "0s" },
