@@ -37,7 +37,7 @@ export function Hero() {
                 width={612}
                 height={1280}
                 alt="Portrait of Bolla Tarun Kumar, Computer Science student and full-stack developer"
-                className="h-full w-full object-cover"
+                className="aspect-[4/5] h-full w-full object-cover object-top"
               />
             </div>
             <div
