@@ -25,18 +25,46 @@ const DETAILS = [
   { icon: Github, label: "GitHub", value: "tk9831345-jpg", href: GITHUB },
 ];
 
-export function Contact() {
-  const [sent, setSent] = useState(false);
+type SubmitState = "idle" | "sending" | "success" | "error";
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+export function Contact() {
+  const [state, setState] = useState<SubmitState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const subject = encodeURIComponent(String(data.get("subject") ?? ""));
-    const body = encodeURIComponent(
-      `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("message")}`,
-    );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setState("sending");
+    setErrorMsg("");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const body = {
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      subject: String(data.get("subject") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const json = (await res.json().catch(() => ({}))) as {
+        success?: boolean;
+        message?: string;
+      };
+      if (res.ok && json.success) {
+        setState("success");
+        form.reset();
+      } else {
+        setState("error");
+        setErrorMsg(json.message ?? "Could not send your message. Please try again.");
+      }
+    } catch {
+      setState("error");
+      setErrorMsg("Network error — please check your connection and try again.");
+    }
   }
 
   return (
