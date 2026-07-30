@@ -31,19 +31,17 @@ export function Hero() {
             </span>
           ))}
           <div className="relative rounded-[2rem] p-[2px] [background:var(--gradient-brand)]">
-            <div className="overflow-hidden rounded-[calc(2rem-2px)] bg-surface">
+            <div className="relative overflow-hidden rounded-[calc(2rem-2px)] bg-[radial-gradient(circle_at_50%_25%,color-mix(in_oklab,var(--primary)_22%,var(--surface)),var(--background)_78%)]">
               <img
-                src={profileAsset.url}
-                width={612}
-                height={1280}
+                src={portrait}
                 alt="Portrait of Bolla Tarun Kumar, Computer Science student and full-stack developer"
-                className="aspect-[4/5] h-full w-full object-cover object-top"
+                className="aspect-[3/4] h-full w-full scale-105 object-contain object-top"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-[calc(2rem-2px)] shadow-[inset_0_-90px_120px_-70px_oklch(0.62_0.19_258/0.45)]"
               />
             </div>
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 rounded-[2rem] shadow-[inset_0_-80px_120px_-60px_oklch(0.62_0.19_258/0.55)]"
-            />
           </div>
         </div>
 
