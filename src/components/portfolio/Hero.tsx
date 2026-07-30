@@ -1,5 +1,5 @@
 import { ArrowRight, Download, Mail } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import profileAsset from "@/assets/tarun-portrait.jpg.asset.json";
 
 const TECH = [
   { name: "React", className: "left-[-4%] top-[12%]", delay: "0s" },
@@ -33,11 +33,11 @@ export function Hero() {
           <div className="relative rounded-[2rem] p-[2px] [background:var(--gradient-brand)]">
             <div className="overflow-hidden rounded-[calc(2rem-2px)] bg-surface">
               <img
-                src={profile}
-                width={912}
-                height={912}
+                src={profileAsset.url}
+                width={612}
+                height={1280}
                 alt="Portrait of Bolla Tarun Kumar, Computer Science student and full-stack developer"
-                className="h-full w-full object-cover"
+                className="aspect-[4/5] h-full w-full object-cover object-top"
               />
             </div>
             <div
