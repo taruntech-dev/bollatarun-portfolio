@@ -1,6 +1,12 @@
 import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
+
+// EmailJS public credentials (safe to ship to the browser).
+const EMAILJS_PUBLIC_KEY = "VAKjVEy1WURbG_GVU";
+const EMAILJS_SERVICE_ID = "service_tathivm";
+const EMAILJS_TEMPLATE_ID = "template_gvt3s3k";
 
 const EMAIL = "tarunbolla19@gmail.com";
 const PHONE = "+91 9861252672";
