@@ -1,6 +1,12 @@
 import { useState, type FormEvent } from "react";
+import emailjs from "@emailjs/browser";
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { Reveal, SectionHeading } from "./Reveal";
+
+// EmailJS public credentials (safe to ship to the browser).
+const EMAILJS_PUBLIC_KEY = "VAKjVEy1WURbG_GVU";
+const EMAILJS_SERVICE_ID = "service_tathivm";
+const EMAILJS_TEMPLATE_ID = "template_gvt3s3k";
 
 const EMAIL = "tarunbolla19@gmail.com";
 const PHONE = "+91 9861252672";
@@ -37,35 +43,33 @@ export function Contact() {
     setErrorMsg("");
     const form = e.currentTarget;
     const data = new FormData(form);
-    const body = {
+    const params = {
       name: String(data.get("name") ?? ""),
       email: String(data.get("email") ?? ""),
       subject: String(data.get("subject") ?? ""),
       message: String(data.get("message") ?? ""),
+      title: String(data.get("subject") ?? ""),
+      from_name: String(data.get("name") ?? ""),
+      from_email: String(data.get("email") ?? ""),
+      reply_to: String(data.get("email") ?? ""),
     };
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params, {
+        publicKey: EMAILJS_PUBLIC_KEY,
       });
-      const json = (await res.json().catch(() => ({}))) as {
-        success?: boolean;
-        message?: string;
-      };
-      if (res.ok && json.success) {
-        setState("success");
-        form.reset();
-      } else {
-        setState("error");
-        setErrorMsg(json.message ?? "Could not send your message. Please try again.");
-      }
-    } catch {
+      setState("success");
+      form.reset();
+    } catch (err) {
       setState("error");
-      setErrorMsg("Network error — please check your connection and try again.");
+      const text =
+        typeof err === "object" && err !== null && "text" in err
+          ? String((err as { text: unknown }).text)
+          : "";
+      setErrorMsg(text || "Could not send your message. Please try again.");
     }
   }
+
 
   return (
     <section id="contact" className="px-5 py-24">
