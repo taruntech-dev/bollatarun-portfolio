@@ -274,17 +274,6 @@ Consistent spacing, typography, and color palette throughout the site
 
 The final website should convey professionalism, technical expertise, and a passion for full-stack web development while maintaining a sleek, modern, minimalist dark aesthetic with polished animations and an engaging user experience.
 
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://bollatarun-portfolio.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/c0770e92-ee02-4e0b-afd6-0f5ad396e970).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
