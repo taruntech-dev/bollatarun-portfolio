@@ -99,8 +99,8 @@ export function Education() {
         <SectionHeading eyebrow="Academics" title="Education" />
         <Reveal>
           <div className="relative pl-8">
-            <span className="absolute left-0 top-2 h-full w-px bg-gradient-to-b from-primary via-secondary to-transparent" />
-            <span className="absolute -left-[7px] top-2 h-4 w-4 rounded-full bg-primary shadow-[0_0_0_6px_color-mix(in_oklab,var(--primary)_18%,transparent)]" />
+            <span className="absolute left-0 top-2 h-full w-px bg-linear-to-b from-primary via-secondary to-transparent" />
+            <span className="absolute -left-1.75 top-2 h-4 w-4 rounded-full bg-primary shadow-[0_0_0_6px_color-mix(in_oklab,var(--primary)_18%,transparent)]" />
             <article className="glass glass-hover p-7">
               <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
                 <div className="min-w-0">

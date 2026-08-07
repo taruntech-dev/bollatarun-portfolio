@@ -42,7 +42,7 @@ export function Projects() {
           {PROJECTS.map((p, i) => (
             <Reveal key={p.title} delay={i * 110}>
               <article className="glass glass-hover flex h-full flex-col overflow-hidden">
-                <div className="relative aspect-[3/2] overflow-hidden">
+                <div className="relative aspect-3/2 overflow-hidden">
                   <img
                     src={p.image}
                     alt={`${p.title} project preview`}
@@ -51,7 +51,7 @@ export function Projects() {
                     height={800}
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/80 to-transparent" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-lg font-semibold">{p.title}</h3>

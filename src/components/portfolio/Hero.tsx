@@ -30,12 +30,12 @@ export function Hero() {
               {t.name}
             </span>
           ))}
-          <div className="relative rounded-[2rem] p-[2px] [background:var(--gradient-brand)]">
+          <div className="relative rounded-[2rem] p-0.5 [background:var(--gradient-brand)]">
             <div className="relative overflow-hidden rounded-[calc(2rem-2px)] bg-surface">
               <img
                 src={portraitSrc}
                 alt="Portrait of Bolla Tarun Kumar, Computer Science student and full-stack developer"
-                className="aspect-[3/4] h-full w-full object-cover object-top"
+                className="aspect-3/4 h-full w-full object-cover object-top"
               />
               <div
                 aria-hidden
